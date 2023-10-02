@@ -4,12 +4,12 @@ pipeline {
           stage('Source') {
                steps {
                     git branch: 'main',
-                        url: 'https://github.com/ladyusa/wisdom-book'
+                        url: 'https://github.com/SiwakornKU/wisdom-book'
                }
           }
           stage('Build') {
                steps {
-                    sh 'mvn package -DskipTests'
+                    bat 'mvn package -DskipTests'
                }
           }
           stage('Test') {
@@ -19,7 +19,7 @@ pipeline {
           }
           stage('Deploy') {
                steps {
-                    sh 'java -jar ./target/book-1.0.jar'
+                    bat 'java -jar ./target/book-1.0.jar'
                }
           }
      }
